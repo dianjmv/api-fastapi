@@ -5,18 +5,18 @@ from app.core import services
 
 router = APIRouter()
 
-@router.get("/client-portfolio", response_model=List[ClientPortfolioSchema])
+@router.get("/client-portfolio")
 async def get_all_client_portfolios():
     return await services.get_all_client_portfolios()
 
-@router.get("/client-portfolio/{id}", response_model=ClientPortfolioSchema)
+@router.get("/client-portfolio/{id}")
 async def get_client_portfolio_by_id(id: str):
     client_portfolio = await services.get_client_portfolio_by_id(id)
     if client_portfolio is None:
         raise HTTPException(status_code=404, detail="Client Portfolio not found")
     return client_portfolio
 
-@router.post("/client-portfolio", response_model=ClientPortfolioSchema)
+@router.post("/client-portfolio")
 async def create_client_portfolio(client_portfolio: ClientPortfolioSchema):
     return await services.create_client_portfolio(client_portfolio)
 

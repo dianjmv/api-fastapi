@@ -1,6 +1,5 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from pydantic import BaseSettings
-
+from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     MONGO_URI: str = "mongodb://mongo:27017"
     DATABASE_NAME: str = "clientPortfolioDB"

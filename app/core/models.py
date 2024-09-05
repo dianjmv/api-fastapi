@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel
 
 class Tax(BaseModel):
@@ -8,7 +8,7 @@ class Tax(BaseModel):
 
 class Price(BaseModel):
     fullPrice: int
-    taxes: List[Tax]
+    taxes: Optional[List[Tax]]
 
 class Item(BaseModel):
     sku: str
@@ -25,7 +25,7 @@ class Item(BaseModel):
     redeemUnit: str
     orderReasonRedeem: str
     skuRedeem: bool
-    price: Price
+    price: Optional[Price]
     points: int
 
 class ClientPortfolio(BaseModel):
@@ -33,5 +33,5 @@ class ClientPortfolio(BaseModel):
     country: str
     createdDate: str
     customerCode: str
-    items: List[Item]
+    items: Optional[List[Item]]
     route: str

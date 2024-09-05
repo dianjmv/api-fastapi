@@ -11,7 +11,7 @@ COPY pyproject.toml poetry.lock /app/
 RUN pip install poetry
 
 # Instala las dependencias del proyecto
-RUN poetry install
+RUN poetry install --no-root
 
 # Copia el código fuente de la aplicación
 COPY ./app /app/app
